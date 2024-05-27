@@ -1,4 +1,4 @@
-package memgogo
+package gomemgo
 
 import (
 	"github.com/warrior-labs/gomemgo/memgopb"

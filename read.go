@@ -1,4 +1,4 @@
-package memgogo
+package gomemgo
 
 import (
 	"context"
