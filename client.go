@@ -5,6 +5,7 @@ import (
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
 type memgoClient struct {
@@ -29,7 +30,7 @@ func NewClient(dsn string, secureOptions *MemgoSecureOptions) (*memgoClient, err
 		}
 		client = memgopb.NewMemgoServiceClient(conn)
 	} else {
-		conn, err := grpc.NewClient(dsn)
+		conn, err := grpc.NewClient(dsn, grpc.WithTransportCredentials(insecure.NewCredentials()))
 		if err != nil {
 			return nil, err
 		}
